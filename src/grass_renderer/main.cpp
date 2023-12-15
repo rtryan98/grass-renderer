@@ -29,8 +29,14 @@ int32_t main(int32_t argc, const char* argv[])
             .enable_validation = true,
             .enable_gpu_validation = false,
             .disable_tdr = false,
-            .feature_level = D3D_FEATURE_LEVEL_12_2
-        }
+            .feature_level = D3D_FEATURE_LEVEL_12_2,
+            .resource_descriptor_heap_size = D3D12_MAX_SHADER_VISIBLE_DESCRIPTOR_HEAP_SIZE_TIER_2,
+            .sampler_descriptor_heap_size = D3D12_MAX_SHADER_VISIBLE_SAMPLER_HEAP_SIZE,
+            .rtv_descriptor_heap_size = 1024,
+            .dsv_descriptor_heap_size = 1024,
+            .static_samplers = {}
+        },
+        .resource_manager_create_info = {}
     };
     Grass_Renderer app(create_info);
     app.run();
